@@ -1,0 +1,66 @@
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-relative-links
+  - jekyll-seo-tag
+
+# SEO Stuff
+name: Lines in a Landscape (Testing)
+title: Lines in a Landscape (Testing)
+author: Alan Grant
+description: Trails, trains, maps, Málaga, and more - a personal website
+lang: en
+locale: en_GB
+timezone: Europe/Madrid
+url: "https://linesinalandscape.com"
+baseurl: ""
+
+# RSS feeds
+feed:
+  posts_limit: 50
+
+permalink: /:title/
+
+collections:
+  stations-in-the-south:
+    output: true
+    permalink: /:collection/:title/
+  walks:
+    output: true
+    permalink: /:collection/:title/
+
+defaults:
+  - scope:
+      type: "posts"
+    values:
+      permalink: /blog/:title/
+  - scope:
+      type: "stations-in-the-south"
+    values:
+      layout: station
+  - scope:
+      type: "walks"
+    values:
+      layout: walk
+            
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+
+titles_from_headings:
+  enabled:     true
+  strip_title: false
+  collections: true
+
+relative_links:
+  enabled: true
+  collections: true
+
+kramdown:
+  toc_levels: 2..3
+
+# suppress local warning
+github: [metadata]
